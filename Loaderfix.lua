@@ -5,7 +5,7 @@ local ThemeManager = loadstring(game:HttpGet(repo .. "addons/ThemeManager.lua"))
 local SaveManager = loadstring(game:HttpGet(repo .. "addons/SaveManager.lua"))()
 
 --// Window
-local Window = Obsidian:CreateWindow({
+local Window = Library:CreateWindow({
     Title = "Game Script Loader",
     Footer = "Auto game detection",
     ToggleKey = Enum.KeyCode.RightShift
