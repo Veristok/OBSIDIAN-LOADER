@@ -19,9 +19,9 @@ local Section = Tab:CreateSection("Game Detection")
 
 --// Game scripts table
 local GameScripts = {
-    [13985151437] = { -- Casual stock
+    [13985151437] = { -- Casual Stock
         Name = "Casual Stock",
-        Script = "loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/69cc0b3eb4a7f175d4d4e60d29007bf92e7d8e2f7250f90d75f445d383f2537f/download"))()"
+        Script = "https://api.junkie-development.de/api/v1/luascripts/public/69cc0b3eb4a7f175d4d4e60d29007bf92e7d8e2f7250f90d75f445d383f2537f/download"
     },
 
     [286090429] = { -- Arsenal
@@ -40,12 +40,18 @@ local PlaceId = game.PlaceId
 local DetectedGame = GameScripts[PlaceId]
 
 if DetectedGame then
-    Section:CreateLabel("Game detected: "..DetectedGame.Name)
+    Section:CreateLabel("Game detected: " .. DetectedGame.Name)
 
     Section:CreateButton({
         Name = "Load script",
         Callback = function()
-            loadstring(game:HttpGet(DetectedGame.Script))()
+            local ok, err = pcall(function()
+                loadstring(game:HttpGet(DetectedGame.Script))()
+            end)
+
+            if not ok then
+                warn("Script load error:", err)
+            end
         end
     })
 else
