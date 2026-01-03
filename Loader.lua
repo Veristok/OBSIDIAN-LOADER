@@ -5,9 +5,7 @@ local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
 -- Обновлённые ссылки на Obsidian UI
-local ObsidianLibURL = "https://raw.githubusercontent.com/deividcomsono/Obsidian/main/Library.lua"
-local ObsidianThemeURL = "https://raw.githubusercontent.com/deividcomsono/Obsidian/main/addons/ThemeManager.lua"
-local ObsidianSaveURL  = "https://raw.githubusercontent.com/deividcomsono/Obsidian/main/addons/SaveManager.lua"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/deividcomsono/Obsidian/main/Library.lua"))()
 
 -- Загружаем UI библиотеку
 local success, Obsidian = pcall(function()
