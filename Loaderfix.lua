@@ -16,7 +16,10 @@ local Tab = Window:AddTab({
 })
 
 
-local Section = Tab:CreateSection("Game Detection")
+local Section = Tab:AddSection({
+    Name = "Game Detection"
+})
+
 
 --// Game scripts table
 local GameScripts = {
