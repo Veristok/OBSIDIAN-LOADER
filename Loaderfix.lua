@@ -11,10 +11,10 @@ local Window = Library:CreateWindow({
     ToggleKey = Enum.KeyCode.RightShift
 })
 
-local Tabs = {
-	-- Creates a new tab titled Main
-	Main = Window:AddTab("Loader")
-}
+local Tab = Window:AddTab({
+    Name = "Loader"
+})
+
 
 local Section = Tab:CreateSection("Game Detection")
 
